@@ -20,10 +20,8 @@ const Photo = () => {
     if (name === "file") {
       setImageList([]);
     } else if (name === "submit") {
-      html2canvas(
-        resultImg.then((canvas) =>
-          saveImage(canvas.toDataURL("image/png"), "인생네컷.png")
-        )
+      html2canvas(resultImg.current).then((canvas) =>
+        saveImage(canvas.toDataURL("image/png"), "인생네컷.png")
       );
     } else {
       setOptions((prev) => ({ ...prev, [name]: value }));
@@ -36,6 +34,11 @@ const Photo = () => {
 
   const saveImage = (uri, fileName) => {
     let a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href = uri;
+    a.download = fileName;
+    a.click();
+    document.body.removeChild(a);
   };
 
   const initImageArr = new Array(4).fill("");
