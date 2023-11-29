@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import fold from '../../../assets/icons/fold.svg';
-import group from '../../../assets/icons/group.svg';
+import fold from '/icons/fold.svg';
+import group from '/icons/group.svg';
 
 const Content = ({ category, list }) => {
   const [isSelected, setIsSelected] = useState(false);
