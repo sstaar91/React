@@ -1,8 +1,11 @@
 import Content from './Content';
+import { randomBgColor } from '../../utils/randomBgColor';
 
 const Accordion = () => {
   return (
-    <section className="pt-[150px]  h-screen bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] flex items-center flex-col">
+    <section
+      className={`flex items-center flex-col pt-[150px] h-screen ${randomBgColor()}`}
+    >
       <div className="p-4 w-[600px] rounded-lg bg-gray-100">
         <h2 className="mb-2 text-l font-medium">Menu</h2>
         <div className="flex flex-col gap-2">

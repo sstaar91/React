@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom';
+import { randomBgColor } from '../../utils/randomBgColor';
 import accordion from '/images/accordion.png';
 import checkBox from '/images/checkBox.png';
+import dropdown from '/images/dropdown.png';
 
 const Home = () => {
-  const thumnailList = {
-    accordion,
-    checkBox,
-  };
-
   return (
-    <section className="pt-[150px] h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% flex items-center flex-col">
+    <section
+      className={`flex items-center flex-col pt-[150px] h-screen ${randomBgColor()}`}
+    >
       <article className="grid grid-cols-4 gap-6 max-w-7xl">
         {CARD_LIST.map(({ id, thumnail, title, description }) => {
           return (
             <Link
-              className="p-3 bg-white rounded-lg"
+              className="p-3 bg-white rounded-lg "
               to={`/${thumnail}`}
               key={id}
             >
@@ -22,7 +21,7 @@ const Home = () => {
                 <div className="h-40 object-cover">
                   <img
                     className="duration-300 hover:scale-125	"
-                    src={thumnailList[thumnail]}
+                    src={THUMNAIL[thumnail]}
                     alt="card image"
                   />
                 </div>
@@ -58,4 +57,17 @@ const CARD_LIST = [
     description:
       '여러가지 항목을 체크 할 수 있고, 전체 체크를 한번에 동작할 수 있게 하는 UI',
   },
+  {
+    id: 3,
+    title: 'Dropdown',
+    thumnail: 'dropdown',
+    description:
+      '특정 버튼을 클릭하면 여러가지 선택할 수 있는 리스트가 나오는 UI',
+  },
 ];
+
+const THUMNAIL = {
+  accordion,
+  checkBox,
+  dropdown,
+};

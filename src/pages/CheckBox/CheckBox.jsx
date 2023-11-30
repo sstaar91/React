@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import List from './List';
+import { randomBgColor } from '../../utils/randomBgColor';
 
 const CheckBox = () => {
   const [checkList, setCheckList] = useState([false, false, false]);
@@ -16,7 +17,9 @@ const CheckBox = () => {
   };
 
   return (
-    <section className="pt-[150px]  h-screen bg-gradient-to-r from-[#6fb43a] via-[#fdde1d] to-[#45c8fc] flex items-center flex-col">
+    <section
+      className={`flex items-center flex-col pt-[150px] h-screen ${randomBgColor()}`}
+    >
       <div className="p-4 w-[600px] rounded-lg bg-gray-100">
         <h2 className="mb-2 text-l font-medium">약관 동의</h2>
         <div className="flex flex-col gap-2">
