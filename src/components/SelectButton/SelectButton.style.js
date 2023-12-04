@@ -7,7 +7,7 @@ export const Button = styled.button`
   border: none;
   font-size: 15px;
   font-weight: 700;
-  background-color: ${(props) => props.theme.purple_button};
+  background-color: ${(props) => props.bgColor};
   color: white;
   transition: 0.3s all ease-in-out;
   transform: ${(props) => `scale(${props.clicked ? "70%" : "100%"})`};
