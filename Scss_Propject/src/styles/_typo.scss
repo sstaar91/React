@@ -1,0 +1,23 @@
+$bold: 800;
+$semiBold: 700;
+$normal: 400;
+
+@mixin h1 {
+  font-size: 32px;
+  font-weight: $bold;
+}
+
+@mixin h2 {
+  font-size: 24px;
+  font-weight: $bold;
+}
+
+@mixin h3 {
+  font-size: 20px;
+  font-weight: $bold;
+}
+
+@mixin h4 {
+  font-size: 16px;
+  font-weight: $bold;
+}
