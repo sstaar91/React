@@ -11,8 +11,8 @@ const Lnb = ({ currentCategory, onClickCategory }: Props) => {
   };
 
   return (
-    <nav className="px-10 py-4 bg-black/[0.85] text-white">
-      <div className="flex-center gap-3 h-20">
+    <nav className="px-10 py-4 h-full bg-black/[0.85] text-white">
+      <div className="flex-center gap-3 h-20 cursor-pointer" onClick={() => onClickCategory("")}>
         <img src={logo} alt="logo" width="36px" />
         <h1 className="font-kanit font-medium text-2xl text-white">Lottery</h1>
       </div>
