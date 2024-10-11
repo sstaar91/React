@@ -1,0 +1,61 @@
+.confirm {
+  @apply bg-pink-300;
+}
+
+.yet {
+  @apply bg-gray-500 text-white;
+}
+
+.done {
+  @apply bg-green-300;
+}
+
+.start_1 {
+  @apply col-start-1;
+}
+.start_2 {
+  @apply col-start-2;
+}
+.start_3 {
+  @apply col-start-3;
+}
+.start_4 {
+  @apply col-start-4;
+}
+.start_5 {
+  @apply col-start-5;
+}
+.start_6 {
+  @apply col-start-6;
+}
+.start_7 {
+  @apply col-start-7;
+}
+.start_8 {
+  @apply col-start-8;
+}
+
+.end_9 {
+  @apply col-end-9;
+}
+.end_8 {
+  @apply col-end-8;
+}
+.end_7 {
+  @apply col-end-7;
+}
+.end_6 {
+  @apply col-end-6;
+}
+.end_5 {
+  @apply col-end-5;
+}
+.end_4 {
+  @apply col-end-4;
+}
+.end_3 {
+  @apply col-end-3;
+}
+.end_2 {
+  @apply col-end-2;
+}
