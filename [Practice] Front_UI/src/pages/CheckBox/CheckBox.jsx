@@ -1,6 +1,9 @@
 import { useState } from 'react';
+
+import SectionLayout from '@_component/Layout';
 import List from './List';
-import { randomBgColor } from '../../utils/randomBgColor';
+
+import { CHECKBOX_LIST } from '@_constant/list';
 
 const CheckBox = () => {
   const [checkList, setCheckList] = useState([false, false, false]);
@@ -17,9 +20,7 @@ const CheckBox = () => {
   };
 
   return (
-    <section
-      className={`flex items-center flex-col pt-[150px] h-screen ${randomBgColor()}`}
-    >
+    <SectionLayout>
       <div className="p-4 w-[600px] rounded-lg bg-gray-100">
         <h2 className="mb-2 text-l font-medium">약관 동의</h2>
         <div className="flex flex-col gap-2">
@@ -29,7 +30,7 @@ const CheckBox = () => {
             checked={isAllChecked}
             handleCheck={handleAllCheck}
           />
-          {CHECK_LIST.map((list, idx) => {
+          {CHECKBOX_LIST.map((list, idx) => {
             return (
               <List
                 key={list.id}
@@ -43,14 +44,8 @@ const CheckBox = () => {
           })}
         </div>
       </div>
-    </section>
+    </SectionLayout>
   );
 };
 
 export default CheckBox;
-
-const CHECK_LIST = [
-  { id: 1, title: '14세 이상입니다.' },
-  { id: 2, title: '모든 약관을 확인했습니다.' },
-  { id: 3, title: '이 체크박스를 누르면 당신은 슈퍼 개발자가 됩니다.' },
-];

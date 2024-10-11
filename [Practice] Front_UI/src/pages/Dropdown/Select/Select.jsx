@@ -1,4 +1,5 @@
 import { useState, Fragment } from 'react';
+import { SELECT_LIST, SELECT_RESULT_LIST } from '@_constant/list';
 
 const Select = () => {
   const [selectValue, setSelectValue] = useState({
@@ -39,7 +40,7 @@ const Select = () => {
           })}
         </div>
         <div className="flex flex-col gap-1 basis-1/2 bg-white rounded-lg">
-          {RESULT_LIST.map(({ id, name, title }) => {
+          {SELECT_RESULT_LIST.map(({ id, name, title }) => {
             return (
               <Fragment key={id}>
                 {selectValue[name] && (
@@ -60,43 +61,3 @@ const Select = () => {
 };
 
 export default Select;
-
-const SELECT_LIST = [
-  {
-    id: 1,
-    name: 'size',
-    option: [
-      { id: 1, value: '' },
-      { id: 2, value: 'S' },
-      { id: 3, value: 'M' },
-      { id: 4, value: 'L' },
-      { id: 5, value: 'XL' },
-    ],
-  },
-  {
-    id: 2,
-    name: 'color',
-    option: [
-      { id: 1, value: '' },
-      { id: 2, value: 'black' },
-      { id: 3, value: 'red' },
-      { id: 4, value: 'yellow' },
-    ],
-  },
-  {
-    id: 3,
-    name: 'option',
-    option: [
-      { id: 1, value: '' },
-      { id: 2, value: '1+1' },
-      { id: 3, value: '1+1+1' },
-      { id: 4, value: '5+2' },
-    ],
-  },
-];
-
-const RESULT_LIST = [
-  { id: 1, name: 'size', title: 'SIZE' },
-  { id: 2, name: 'color', title: 'COLOR' },
-  { id: 3, name: 'option', title: 'OPTION' },
-];
