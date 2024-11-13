@@ -1,11 +1,22 @@
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getLatestLotto } from "@_service/getLatestInfo";
 
-import { doc, getDoc, collection, addDoc, setDoc } from "firebase/firestore";
-import { db } from "@_lib/firebase";
+import { InfoCard } from "@_components/molecules";
+
+// import { doc, getDoc, collection, addDoc, setDoc } from "firebase/firestore";
+// import { db } from "@_lib/firebase";
+import { getDisplayThursday, getLatestLottoDrwNo, getLatestPensionDrwNo } from "@_utils/calculateDate";
 
 const Home = () => {
   const { data, isPending } = useQuery({ queryKey: ["latestLotto"], queryFn: getLatestLotto });
+
+  const [curOverview, setCurOverview] = useState("LOTTO");
+  const onClickOverview = (status: string) => {
+    setCurOverview(status);
+  };
+
+  console.log(getDisplayThursday(new Date()));
 
   if (isPending)
     return (
@@ -28,20 +39,26 @@ const Home = () => {
   //   setDoc(doc(db, "item", "1"), { app: "add check" }, { merge: true });
   // }
 
-  const { drwNoDate } = data;
+  // const { drwNoDate } = data;
 
   return (
     <section className="h-screen p-16 bg-[#050624] text-white">
       <div className="text-3xl font-bold">Overview</div>
-      <article className="my-16">
-        <div className="py-6 px-8 w-fit rounded-xl bg-[#2e3455] border border-[#01B8E3] font-kanit">
-          <label className="text-xs text-[#01B8E3]">LOTTO</label>
-          <div className="mt-2 text-3xl font-bold">{drwNoDate}</div>
+      <article className="grid grid-cols-[222px_1fr] gap-8 my-16">
+        <div className="flex flex-col gap-4">
+          {OVERVIEW_LIST.map((list) => {
+            return <InfoCard key={list.id} title={list.title} date={list.round} curStatus={curOverview} onClickOverview={onClickOverview} />;
+          })}
         </div>
-        <div></div>
+        <div className="p-5 bg-[#2e3455] rounded-xl border border-[#4B6EAC]">123</div>
       </article>
     </section>
   );
 };
 
 export default Home;
+
+const OVERVIEW_LIST = [
+  { id: 1, title: "LOTTO", round: getLatestLottoDrwNo() },
+  { id: 2, title: "PENSION", round: getLatestPensionDrwNo() },
+];
