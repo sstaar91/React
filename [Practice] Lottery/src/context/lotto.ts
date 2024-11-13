@@ -1,0 +1,16 @@
+export const LATEST_LOTTO_INFO = {
+  bnusNo: 0,
+  drwNo: 0,
+  drwNoDate: "",
+  drwtNo1: 0,
+  drwtNo2: 0,
+  drwtNo3: 0,
+  drwtNo4: 0,
+  drwtNo5: 0,
+  drwtNo6: 0,
+  firstAccumamnt: 0,
+  firstPrzwnerCo: 0,
+  firstWinamnt: 0,
+  returnValue: "",
+  totSellamnt: 0,
+};
